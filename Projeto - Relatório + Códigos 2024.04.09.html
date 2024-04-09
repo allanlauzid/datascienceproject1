@@ -1,0 +1,766 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Projeto</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="d487932c-a975-41c5-81ed-0cc44115c8a8" class="page sans"><header><h1 class="page-title">Projeto</h1><p class="page-description"></p></header><div class="page-body"><p id="0483f9a7-1c59-484d-9649-e51a786bfb4f" class="">
+</p><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">RELATÓRIO</summary><div class="indented"><p id="5c2b261f-0c02-4a86-90c6-f9590de10b82" class="">
+</p><p id="63264c14-2f49-4101-a06b-8f19ab132093" class=""><strong>RELATÓRIO</strong></p><ul id="242226a4-487a-4937-aee2-3698128032bf" class="bulleted-list"><li style="list-style-type:disc"><strong>Objetivo principal</strong></li></ul><p id="f8ebf403-d457-4116-891a-91497e251e35" class="">Analisar o comportamento da importação de armas da Rússia e Ucrânia entre 2007 e 2022 e observar seus outliers.</p><ul id="cb83e76e-1c5f-4d66-b749-013e81fb3e28" class="bulleted-list"><li style="list-style-type:disc"><strong>Principais bases de dados</strong></li></ul><p id="096e6e01-fe95-481b-ba6a-23b88e02d089" class="">banco de dados do Banco Mundial - baseado no banco de dados do SIPRI (Stockholm International Peace Research Institute).</p><ul id="4549eba1-bf9a-4c06-bdbc-1ab2ab6d5cec" class="bulleted-list"><li style="list-style-type:disc"><strong>Dicionário de dados</strong></li></ul><table id="cfcc42ba-ea24-4aca-9527-1330508076ce" class="simple-table"><tbody><tr id="1270bae7-d2d0-41ce-a00f-56e032525c40"><td id="\^JP" class=""><strong>Tabela</strong></td><td id="XAkK" class="" style="width:489px">Importação de Armas por país</td><td id="]lax" class=""></td></tr><tr id="c9c4c577-d98e-4b45-b4ec-8c09f83dae52"><td id="\^JP" class=""><strong>Descrição</strong></td><td id="XAkK" class="" style="width:489px">Armazenará os valores em TIV da importação de armas de cada país</td><td id="]lax" class=""></td></tr><tr id="f94d3c8d-f7aa-4edf-acd2-5753c9b27b0a"><td id="\^JP" class=""><strong>Observações</strong></td><td id="XAkK" class="" style="width:489px">TIV = Valores Indicadores de Tendência do SIPRI (TIVs - Trend Indicator Value) expressos em milhões de dólares.<br/> Esses indicadores consideram diversos meios de transação de diversos tipos de armas, veículos, e insumos bélicos em geral. Um &lt;0.5 indica que o valor das entregas é inferior a 0,5 milhões de dólares.<br/></td><td id="]lax" class=""></td></tr><tr id="255c6c85-e727-4cb4-84a7-b7124bf588cb"><td id="\^JP" class=""><strong>Campos</strong></td><td id="XAkK" class="" style="width:489px"></td><td id="]lax" class=""></td></tr><tr id="ece1344d-9cc4-486c-b6fe-6b8171f1c728"><td id="\^JP" class=""><strong>Nome</strong></td><td id="XAkK" class="" style="width:489px"><strong>Descrição</strong></td><td id="]lax" class=""><strong>Tipo de dado</strong></td></tr><tr id="a39a8b66-3836-485f-8b4b-0bdf4fbe270c"><td id="\^JP" class=""><strong>País</strong></td><td id="XAkK" class="" style="width:489px">Nome do País</td><td id="]lax" class=""><strong>VARCHAR</strong></td></tr><tr id="d1980c45-6f83-4d65-a3c1-2bb989b979f4"><td id="\^JP" class=""><strong>TIV</strong></td><td id="XAkK" class="" style="width:489px">Valor em dólares de insumos bélicos importados</td><td id="]lax" class=""><strong>INT</strong></td></tr></tbody></table><ul id="42ec48c9-fdcd-421d-a2be-4833e83282e4" class="bulleted-list"><li style="list-style-type:disc"><strong>Tipo de estatística</strong></li></ul><p id="d4f89960-c667-41c3-83d4-35b015a75070" class="">Box Plot</p><ul id="579dbcb5-80a6-4779-8b12-5463c3c85c64" class="bulleted-list"><li style="list-style-type:disc"><strong>Problema que quer resolver</strong></li></ul><p id="fee3bc71-ca4d-48e6-a713-2deaf13664cf" class="">Identificar outliers e quais anos tiveram uma quantidade anormalmente alta ou baixa de importação de armas. Comparar como a distribuição da importação de armas se compara entre a Rússia e a Ucrânia.</p><ul id="4d788a87-54a9-4195-9e8b-9b64fc6e0c14" class="bulleted-list"><li style="list-style-type:disc"><strong>Por que é relevante</strong></li></ul><p id="c076e093-3518-4a6e-aac4-3ba5582b71d4" class="">A análise da importação de armas entre Rússia e Ucrânia é relevante pois a importação de armas pode ser um indicador de tensões regionais, o que levaria a uma escalada de conflito. O que indicaria o risco da segurança e estabilidade econômica de determinada região.</p><ul id="6676ab5b-a94f-42f1-900c-80de6c271e5d" class="bulleted-list"><li style="list-style-type:disc"><strong>Como é relevante</strong></li></ul><p id="a44afa1a-391c-484e-aff9-58c22b8592ca" class="">A importação de armas entre Rússia e Ucrânia é um indicador importante de tensões regionais, que podem levar a uma escalada de conflitos. Isso pode representar um risco para a segurança e a estabilidade econômica de uma determinada região. Essa análise pode ajudar a prever futuros conflitos e permitir que as nações se preparem adequadamente.</p><ul id="0b6d59f8-a626-49d4-aab0-4f1f714cb3d0" class="bulleted-list"><li style="list-style-type:disc"><strong>Quem se beneficiaria</strong></li></ul><p id="5cee4c99-15b2-4792-ad67-7415e502f735" class="">Os principais beneficiários desta pesquisa seriam governos, pesquisadores e a indústria bélica. Esses padrões podem ser usados para desenvolver políticas e estratégias para encerrar conflitos e promover a paz.</p><ul id="fc529da4-f535-468f-84ee-3e6e8d84c9ae" class="bulleted-list"><li style="list-style-type:disc"><strong>Quanto custaria</strong></li></ul><p id="3507dad8-ad60-45d7-acda-06c838696b74" class="">Os custos podem variar dependendo do tamanho da pesquisa, apesar da coleta de dados ser do SIPRI, haveriam despesas com análise de dados, publicação (preparação e publicação de relatório) e divulgação de resultados (através de conferências e workshops), além de custos indiretos.</p><p id="7807da0d-3e02-42f9-9774-0af6f9dc4e67" class="">
+</p></div></details><details open=""><summary style="font-weight:600;font-size:1.875em;line-height:1.3;margin:0">Código</summary><div class="indented"><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia 2007-2022</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5121e7c7-89a5-48da-88c5-184c5609b2b7" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot(df[&#x27;Russia&#x27;])
+plt.title(&#x27;Russia 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.show()
+</code></pre><ul id="3cd27b6d-00b8-48b4-bf9f-ad31ded72d98" class="toggle"><li><details open=""><summary><strong>Explicação</strong></summary><p id="4899661e-5dd8-40d1-a01d-9f27a68e19d4" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="34e2ab62-40fc-4b57-883a-095f636155c8" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import pandas as pd
+</code></pre><p id="98c3d80f-3de0-4066-9115-803472a81ef0" class="">Esta linha importa a biblioteca <code>pandas</code> e a renomeia como <code>pd</code>. A biblioteca <code>pandas</code> é uma ferramenta poderosa para manipulação e análise de dados.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="01e68c02-dc50-4d36-9edc-b6cfac967cac" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import matplotlib.pyplot as plt
+</code></pre><p id="c566b919-7755-40d3-bd14-cf049ed54259" class="">Esta linha importa o módulo <code>pyplot</code> da biblioteca <code>matplotlib</code> e o renomeia como <code>plt</code>. <code>matplotlib.pyplot</code> é uma coleção de funções que fazem o <code>matplotlib</code> funcionar como o MATLAB, e é usado para criar figuras, áreas de desenho, linhas, texto, etc.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="863adf3b-b249-4a89-b050-deb283bc81c4" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+</code></pre><p id="7b9895c6-fea1-4c9c-9679-5e986b0bbbbf" class="">Esta linha define uma variável chamada <code>url</code> que contém o URL do arquivo CSV que você deseja ler.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b8c5c6de-14e8-4ac5-be33-c981b37e38f0" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">df=pd.read_csv(url, sep=&#x27;;&#x27;)
+</code></pre><p id="271499c0-1b5a-4738-ad0a-d1e7aedbbfff" class="">Esta linha usa a função <code>read_csv</code> do <code>pandas</code> para ler o arquivo CSV localizado no URL definido anteriormente. O parâmetro <code>sep=&#x27;;&#x27;</code> indica que o separador dos dados no arquivo CSV é o ponto e vírgula (<code>;</code>). O resultado é armazenado em um DataFrame <code>pandas</code>, que é uma estrutura de dados bidimensional, semelhante a uma planilha.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="edb92473-c584-42da-bf03-c2a8d3e82130" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.boxplot(df[&#x27;Russia&#x27;])
+</code></pre><p id="f51fac8b-050a-429b-8ddd-e050b0d6413f" class="">Esta linha cria um boxplot dos dados da coluna ‘Russia’ do DataFrame <code>df</code>. Um boxplot é um método para representar graficamente grupos de dados numéricos através de seus quartis.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c43e7a62-2f34-475b-9441-85b6acbf964d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.title(&#x27;Russia 2007-2022&#x27;)
+</code></pre><p id="14aaf82e-25af-4941-aabc-844803a17a20" class="">Esta linha adiciona o título ‘Russia 2007-2022’ ao gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2ee40f46-cee8-4d08-98cd-3be543859a1c" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.ylabel(&#x27;Trilhões de US$&#x27;)
+</code></pre><p id="6654b3bf-88aa-4273-a794-a25f28a7fd81" class="">Esta linha adiciona o rótulo ‘Trilhões de US$’ ao eixo y do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2d86e159-9d3c-4e61-a543-0bbfc7ce6faf" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.show()
+</code></pre><p id="320c59b1-908a-4bd2-8b97-22b363d7167b" class="">Esta linha exibe o gráfico. Sem esta linha, o gráfico não seria visualizado. A função <code>show()</code> em <code>pyplot</code> exibe todas as figuras e bloqueia até que as figuras sejam fechadas.</p></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Ucrânia 2007-2021</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="368dff83-c8cb-4834-859f-7d6cedefc04f" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot(df[&#x27;Ucrania&#x27;])
+plt.title(&#x27;Ucrania 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.show()
+</code></pre><ul id="507df0c8-5f70-41bd-ad2c-1707d7e15a60" class="toggle"><li><details open=""><summary><strong>Explicação</strong></summary><p id="7fa9a490-59d1-474a-a858-8776bde1f39a" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="73044fb2-b6fb-4f9e-8349-1edf23a1a1d5" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import pandas as pd
+</code></pre><p id="43a25f3b-e8aa-424a-b35a-86edae8de106" class="">Esta linha importa a biblioteca <code>pandas</code> e a renomeia como <code>pd</code>. A biblioteca <code>pandas</code> é uma ferramenta poderosa para manipulação e análise de dados.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f7f2b917-2b02-4eec-b966-89defca82330" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import matplotlib.pyplot as plt
+</code></pre><p id="f9084d10-8125-4c32-b73d-44a319247b5a" class="">Esta linha importa o módulo <code>pyplot</code> da biblioteca <code>matplotlib</code> e o renomeia como <code>plt</code>. <code>matplotlib.pyplot</code> é uma coleção de funções que fazem o <code>matplotlib</code> funcionar como o MATLAB, e é usado para criar figuras, áreas de desenho, linhas, texto, etc.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="dd8eb04b-474f-4268-aa21-be6fbf17659d" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+</code></pre><p id="6c2ec4e8-fcba-431d-9365-183ca802c365" class="">Esta linha define uma variável chamada <code>url</code> que contém o URL do arquivo CSV que você deseja ler.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bfa2bc34-5f1a-43f7-a508-4ee306da986e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">df=pd.read_csv(url, sep=&#x27;;&#x27;)
+</code></pre><p id="be0e0dcf-2253-4189-8a8b-52ebad2d7173" class="">Esta linha usa a função <code>read_csv</code> do <code>pandas</code> para ler o arquivo CSV localizado no URL definido anteriormente. O parâmetro <code>sep=&#x27;;&#x27;</code> indica que o separador dos dados no arquivo CSV é o ponto e vírgula (<code>;</code>). O resultado é armazenado em um DataFrame <code>pandas</code>, que é uma estrutura de dados bidimensional, semelhante a uma planilha.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c0815c2d-0efe-4345-821f-3ab65826996b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.boxplot(df[&#x27;Ucrania&#x27;])
+</code></pre><p id="7421877a-0470-4dfd-88de-2691c43fa3aa" class="">Esta linha cria um boxplot dos dados da coluna ‘Ucrania’ do DataFrame <code>df</code>. Um boxplot é um método para representar graficamente grupos de dados numéricos através de seus quartis.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8b539e5a-c797-4158-8aa9-e2d6a2ca4bf9" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.title(&#x27;Ucrania 2007-2022&#x27;)
+</code></pre><p id="407bb564-b15f-4fad-8caf-a3b2a5ee043f" class="">Esta linha adiciona o título ‘Ucrania 2007-2022’ ao gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fd1a6a13-bd2c-446d-b184-42d38bc2c99b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.ylabel(&#x27;Trilhões de US$&#x27;)
+</code></pre><p id="e1f6b56e-a19d-4735-9b22-dee40977bb9f" class="">Esta linha adiciona o rótulo ‘Trilhões de US$’ ao eixo y do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="cf1e3977-20b6-4781-80da-dc2ee03d535e" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.show()
+</code></pre><p id="14e49473-497c-481e-804a-d89a364f909d" class="">Esta linha exibe o gráfico. Sem esta linha, o gráfico não seria visualizado. A função <code>show()</code> em <code>pyplot</code> exibe todas as figuras e bloqueia até que as figuras sejam fechadas.</p><p id="46a034e7-0af7-4900-ab39-879862e2f960" class="">
+</p></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia 2007-2022</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="8e565a47-64db-4b26-9655-e6f8e82983d1" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+plt.boxplot([df[&#x27;Russia&#x27;], df[&#x27;Ucrania&#x27;]], labels=[&#x27;Russia&#x27;, &#x27;Ucrania&#x27;])
+plt.title(&#x27;Russia e Ucrania 2007-2022&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Países&#x27;)
+plt.show()
+</code></pre><ul id="f8140071-9878-4dab-b0ca-c92e14e7df55" class="toggle"><li><details open=""><summary><strong>Explicação</strong></summary><p id="1d9fdf1c-f517-465e-b570-b50f8a18a014" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="fd07f5ff-4a07-4cef-b68f-1315c28efc20" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import pandas as pd
+</code></pre><p id="e159a895-e262-4117-94e1-34c24b6cb2ca" class="">Esta linha importa a biblioteca <code>pandas</code> e a renomeia como <code>pd</code>. A biblioteca <code>pandas</code> é uma ferramenta poderosa para manipulação e análise de dados.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="bc8f174c-f973-4134-a63f-df2e98a56fa6" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import matplotlib.pyplot as plt
+</code></pre><p id="6bdc4b99-1da0-4d82-be15-303771a7815f" class="">Esta linha importa o módulo <code>pyplot</code> da biblioteca <code>matplotlib</code> e o renomeia como <code>plt</code>. <code>matplotlib.pyplot</code> é uma coleção de funções que fazem o <code>matplotlib</code> funcionar como o MATLAB, e é usado para criar figuras, áreas de desenho, linhas, texto, etc.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="0cf8ac9b-dc26-4fa8-adb6-c5a34ee956f5" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+</code></pre><p id="5c33a2f9-2d5a-4952-bdfd-b1195cec3cec" class="">Esta linha define uma variável chamada <code>url</code> que contém o URL do arquivo CSV que você deseja ler.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="296dd47a-13de-4856-a32f-c3902b765118" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">df=pd.read_csv(url, sep=&#x27;;&#x27;)
+</code></pre><p id="55501174-804c-46c5-bcfb-4584e19fa71c" class="">Esta linha usa a função <code>read_csv</code> do <code>pandas</code> para ler o arquivo CSV localizado no URL definido anteriormente. O parâmetro <code>sep=&#x27;;&#x27;</code> indica que o separador dos dados no arquivo CSV é o ponto e vírgula (<code>;</code>). O resultado é armazenado em um DataFrame <code>pandas</code>, que é uma estrutura de dados bidimensional, semelhante a uma planilha.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="38f0ce7c-93ed-4b0c-bf81-4c60d66d6f9b" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.boxplot([df[&#x27;Russia&#x27;], df[&#x27;Ucrania&#x27;]], labels=[&#x27;Russia&#x27;, &#x27;Ucrania&#x27;])
+</code></pre><p id="5e7e95e7-1f8c-4e55-8ae3-8cea18022a52" class="">Esta linha cria um boxplot dos dados das colunas ‘Russia’ e ‘Ucrania’ do DataFrame <code>df</code>. A função <code>boxplot</code> recebe uma lista de sequências numéricas e cria um boxplot para cada uma delas. As etiquetas para os boxplots são fornecidas pelo parâmetro <code>labels</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="23077277-a614-4607-8b71-f2b71e871c93" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.title(&#x27;Russia e Ucrania 2007-2022&#x27;)
+</code></pre><p id="576d65a6-f19a-4369-b506-f12544adbfbf" class="">Esta linha adiciona o título ‘Russia e Ucrania 2007-2022’ ao gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="c2ad8687-aa3a-4c18-90c4-db0be0914899" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.ylabel(&#x27;Trilhões de US$&#x27;)
+</code></pre><p id="4d384607-b1ac-4e18-97f7-5c1e80458470" class="">Esta linha adiciona o rótulo ‘Trilhões de US$’ ao eixo y do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="201692f0-c89c-41c9-a662-2d3a1de1ec17" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.xlabel(&#x27;Países&#x27;)
+</code></pre><p id="eb478da7-84a2-4efa-9971-ef393ec0fc92" class="">Esta linha adiciona o rótulo ‘Países’ ao eixo x do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="11b9381e-fc68-4af8-88c4-ce74593a1848" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.show()
+</code></pre><p id="6b8876be-08d6-4b90-8a76-5a42c76eecff" class="">Esta linha exibe o gráfico. Sem esta linha, o gráfico não seria visualizado. A função <code>show()</code> em <code>pyplot</code> exibe todas as figuras e bloqueia até que as figuras sejam fechadas.</p></details></li></ul></div></details><details open=""><summary style="font-weight:600;font-size:1.5em;line-height:1.3;margin:0">Rússia e Ucrânia 2007-2021</summary><div class="indented"><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="7c2e6113-fe97-400b-89dc-ce78678140ac" class="code"><code class="language-Python">import pandas as pd
+import matplotlib.pyplot as plt
+
+url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+df=pd.read_csv(url, sep=&#x27;;&#x27;)
+
+ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+
+plt.boxplot([ate2021[&#x27;Russia&#x27;], ate2021[&#x27;Ucrania&#x27;]], labels=[&#x27;Russia&#x27;, &#x27;Ucrania&#x27;])
+plt.title(&#x27;Russia e Ucrania 2007-2021&#x27;)
+plt.ylabel(&#x27;Trilhões de US$&#x27;)
+plt.xlabel(&#x27;Países&#x27;)
+plt.show()</code></pre><ul id="7e6a8e85-14c2-4715-af0c-e970013330a7" class="toggle"><li><details open=""><summary><strong>Explicação</strong></summary><p id="5b8330f0-e8f6-4858-9288-b2bcef609405" class="">
+</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="82696caa-12a0-471c-85c3-0c89191bd8c4" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import pandas as pd
+</code></pre><p id="f3f1afa6-dd8f-48ec-9afd-ae87f22a0567" class="">Esta linha importa a biblioteca <code>pandas</code> e a renomeia como <code>pd</code>. A biblioteca <code>pandas</code> é uma ferramenta poderosa para manipulação e análise de dados.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="377bfda3-3cf3-461a-ae59-a1b1eae727aa" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">import matplotlib.pyplot as plt
+</code></pre><p id="991d574c-b679-4836-843f-be030a85fde0" class="">Esta linha importa o módulo <code>pyplot</code> da biblioteca <code>matplotlib</code> e o renomeia como <code>plt</code>. <code>matplotlib.pyplot</code> é uma coleção de funções que fazem o <code>matplotlib</code> funcionar como o MATLAB, e é usado para criar figuras, áreas de desenho, linhas, texto, etc.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="abbf5480-adf4-4cda-b355-37ae03071a65" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">url=&quot;https://raw.githubusercontent.com/allanlauzid/datascienceproject1/main/tiv4.csv&quot;
+</code></pre><p id="c5a0c0d6-e4ab-4e2f-8c09-ecf7cbc049b4" class="">Esta linha define uma variável chamada <code>url</code> que contém o URL do arquivo CSV que você deseja ler.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="92505f2d-8eb7-4a57-b41e-41f972741920" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">df=pd.read_csv(url, sep=&#x27;;&#x27;)
+</code></pre><p id="e9e87688-e5eb-42df-bc34-b13a8e132bd3" class="">Esta linha usa a função <code>read_csv</code> do <code>pandas</code> para ler o arquivo CSV localizado no URL definido anteriormente. O parâmetro <code>sep=&#x27;;&#x27;</code> indica que o separador dos dados no arquivo CSV é o ponto e vírgula (<code>;</code>). O resultado é armazenado em um DataFrame <code>pandas</code>, que é uma estrutura de dados bidimensional, semelhante a uma planilha.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="f57ea0fb-5085-43bb-bb63-51149277e410" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">ate2021 = df[df[&#x27;Ano&#x27;] &lt;= 2021]
+</code></pre><p id="75fc32ca-580d-4127-8d52-dc5a7c3129e6" class="">Esta linha cria um novo DataFrame <code>ate2021</code> que contém apenas as linhas do DataFrame <code>df</code> onde o valor na coluna ‘Ano’ é menor ou igual a 2021.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="88ebd9f0-ef70-4db1-ae19-180530984efb" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.boxplot([ate2021[&#x27;Russia&#x27;], ate2021[&#x27;Ucrania&#x27;]], labels=[&#x27;Russia&#x27;, &#x27;Ucrania&#x27;])
+</code></pre><p id="28f56c46-800d-4bec-a018-ef9bd8782909" class="">Esta linha cria um boxplot dos dados das colunas ‘Russia’ e ‘Ucrania’ do DataFrame <code>ate2021</code>. A função <code>boxplot</code> recebe uma lista de sequências numéricas e cria um boxplot para cada uma delas. As etiquetas para os boxplots são fornecidas pelo parâmetro <code>labels</code>.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="2461cf84-a8e0-4d29-b931-25c8c25562ac" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.title(&#x27;Russia e Ucrania 2007-2021&#x27;)
+</code></pre><p id="aa93128a-df67-4386-8826-813256c21597" class="">Esta linha adiciona o título ‘Russia e Ucrania 2007-2021’ ao gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="b8592f1b-2b91-47a9-84b8-7466db20a08a" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.ylabel(&#x27;Trilhões de US$&#x27;)
+</code></pre><p id="da86207b-4f4d-405c-a70a-9a66f83904e4" class="">Esta linha adiciona o rótulo ‘Trilhões de US$’ ao eixo y do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5b4f4312-dd17-4e5b-b5e8-816e67122e69" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.xlabel(&#x27;Países&#x27;)
+</code></pre><p id="6fd9bc3e-b7ab-4748-8cc1-ff4d9457564f" class="">Esta linha adiciona o rótulo ‘Países’ ao eixo x do gráfico.</p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="5b6058a1-384d-417f-9421-d619c73c3b35" class="code"><code class="language-Python" style="white-space:pre-wrap;word-break:break-all">plt.show()
+</code></pre><p id="5355945c-e700-4892-9a71-8a2d10721c38" class="">esta linha exibe o gráfico. Sem esta linha, o gráfico não seria visualizado. A função <code>show()</code> em <code>pyplot</code> exibe todas as figuras e bloqueia até que as figuras sejam fechadas.</p><p id="38b03ceb-b3a6-476b-b8ef-e5e3ac55ffd9" class="">
+</p></details></li></ul><p id="eafde48d-71ab-46aa-8ff1-0c08b4122086" class="">
+</p></div></details><p id="af99baa2-369e-4628-be3a-8aee9a5a09aa" class="">
+</p></div></details></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
